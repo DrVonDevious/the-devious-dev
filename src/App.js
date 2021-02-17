@@ -5,7 +5,6 @@ import styled from "styled-components"
 const App = () => {
   const AppWrapper = styled.div`
     overflow-x: hidden;
-    height: 100vh;
   `
 
   return (

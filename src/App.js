@@ -1,5 +1,6 @@
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
+import WorkContainer from "./components/WorkContainer"
 import styled from "styled-components"
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <AppWrapper>
         <Header/>
         <Navbar/>
+        <WorkContainer/>
       </AppWrapper>
     </div>
   )

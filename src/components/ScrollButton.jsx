@@ -3,30 +3,42 @@ import getDevice from "../lib/getDevice"
 import icon from "../res/angle-down-solid.svg"
 import styled from "styled-components"
 
-const ScrollButton = () => {
-  const [ scrollPos, setScrollPos ] = useState(0)
+const ScrollIcon = styled.img`
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 42px;
+  height: 42px;
+  opacity: ${props => `calc(1 - ${props.scroll / 100})`};
 
-  window.onscroll = () => {
-    setScrollPos(window.scrollY)
-    console.log(window.scrollY)
+  &:hover {
+    top: calc(90% - 6px);
   }
+`
 
-  const ScrollIcon = styled.img`
-    position: absolute;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 64px;
-    height: 64px;
-    transition: top 0.3s ease;
+const ScrollButton = () => {
+  const [ hidden, setHidden ] = useState(false)
+  const [ scroll, setScroll ] = useState(0)
 
-    &:hover {
-      top: calc(90% - 6px);
-    }
-  `
+  window.addEventListener("scroll", () => {
+    setScroll(window.pageYOffset)
+
+    // if (window.pageYOffset >= 32) {
+    //   setHidden(true)
+    // } else {
+    //   setHidden(false)
+    // }
+  })
 
   return (
-    <ScrollIcon className="scroll-button" src={icon} alt="Down Arrow"/>
+    <ScrollIcon
+      hidden={hidden}
+      scroll={scroll}
+      className="scroll-button"
+      src={icon}
+      alt="Down Arrow"
+    />
   )
 }
 

@@ -1,34 +1,11 @@
+import WorkItem from "./WorkItem"
+
 const WorkContainer = () => {
-  const workList = [
-    {
-      content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    },
-    {
-      content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    },
-    {
-      content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    },
-    {
-      content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    },
-    {
-      content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    },
-    {
-      content: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-    },
-  ]
-
-  const works = workList.map((work) => {
-    return (
-      <div style={{marginTop: "400px"}}>{work.content}</div>
-    )
-  })
-
   return (
     <div>
-      {works}
+      <WorkItem title="CrouchJump" content="This is a project a worked on"/>
+      <WorkItem title="Quicksilver" content="This is a project a worked on"/>
+      <WorkItem title="Ecommerce Site" content="This is a project a worked on"/>
     </div>
   )
 }

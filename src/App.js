@@ -1,6 +1,8 @@
 import Header from "./components/Header"
 import Navbar from "./components/Navbar"
 import WorkContainer from "./components/WorkContainer"
+import StoryContainer from "./components/StoryContainer"
+import ContactContainer from "./components/ContactContainer"
 import smoothscroll from "smoothscroll-polyfill"
 import styled from "styled-components"
 
@@ -17,8 +19,10 @@ const App = () => {
       </header>
       <AppWrapper>
         <Header/>
-        <Navbar/>
         <WorkContainer/>
+        <StoryContainer/>
+        <ContactContainer/>
+        <Navbar/>
       </AppWrapper>
     </div>
   )

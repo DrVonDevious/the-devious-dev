@@ -11,6 +11,7 @@ const ScrollIcon = styled.img`
   width: 42px;
   height: 42px;
   opacity: ${props => `calc(1 - ${props.scroll / 100})`};
+  transition: top 0.3s ease-in-out;
 
   &:hover {
     top: calc(90% - 6px);
@@ -18,21 +19,26 @@ const ScrollIcon = styled.img`
 `
 
 const ScrollButton = () => {
+  const device = getDevice()
+
   const [ hidden, setHidden ] = useState(false)
   const [ scroll, setScroll ] = useState(0)
 
   window.addEventListener("scroll", () => {
     setScroll(window.pageYOffset)
-
-    // if (window.pageYOffset >= 32) {
-    //   setHidden(true)
-    // } else {
-    //   setHidden(false)
-    // }
   })
+
+  const handleClick = () => {
+    if (device.isMobileDevice) {
+      window.scrollTo({ top: window.outerHeight, behavior: "smooth" })
+    } else {
+      window.scrollTo({ top: window.innerHeight, behavior: "smooth" })
+    }
+  }
 
   return (
     <ScrollIcon
+      onClick={handleClick}
       hidden={hidden}
       scroll={scroll}
       className="scroll-button"

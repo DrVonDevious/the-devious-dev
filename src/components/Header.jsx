@@ -4,6 +4,8 @@ import ScrollButton from "./ScrollButton"
 import Particles from "react-particles-js"
 import particleSettings from "../config/particlesjs-config.json"
 import getDevice from "../lib/getDevice"
+import splashImage from "../res/color-splash.jpg"
+import icon from "../res/angle-down-solid.svg"
 
 const Header = () => {
   const device = getDevice()
@@ -13,16 +15,15 @@ const Header = () => {
     height: 100vh;
   `
 
-  const HeaderTitle = (device.isMobileSize || device.isMobileDivice)
-  ? styled.h1`
+  const HeaderIntro = styled.p`
     margin: 0;
     position: absolute;
-    top: 12%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    font-size: 52px;
+    top: 48%;
+    left: 8%;
+    font-size: 42px;
   `
-  : styled.h1`
+
+  const HeaderTitle = styled.h1`
     margin: 0;
     position: absolute;
     top: 12%;
@@ -34,6 +35,33 @@ const Header = () => {
     position: absolute;
   `
 
+  const DesignerText = styled.div`
+    & span {
+      color: transparent;
+      margin: 0;
+      background: url(${splashImage}) 0 0 no-repeat;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+  `
+
+  const DevArrowLeft = styled.img`
+    position: absolute;
+    top: 111px;
+    left: -30px;
+    width: 32px;
+    height: 32px;
+    transform: rotate(90deg);
+  `
+
+  const DevArrowRight = styled.img`
+    position: absolute;
+    top: 111px;
+    width: 32px;
+    height: 32px;
+    transform: rotate(-90deg);
+  `
+
   return (
     <HeaderContainer>
       <Particles
@@ -42,6 +70,12 @@ const Header = () => {
         params={particleSettings}
       />
       <HeaderTitle>The<br/>Devious<br/>Dev.</HeaderTitle>
+      <HeaderIntro>
+        Hi<br/>
+        I'm Caleb Rutland<br/>
+        <DevArrowLeft src={icon}/>Web Developer<DevArrowRight src={icon}/><br/>
+        <DesignerText><span>Designer</span>.</DesignerText>
+      </HeaderIntro>
       <ScrollButton/>
     </HeaderContainer>
   )

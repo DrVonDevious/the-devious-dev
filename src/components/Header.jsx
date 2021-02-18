@@ -15,8 +15,8 @@ const HeaderContainer = styled.div`
 const HeaderIntro = styled.p`
   margin: 0;
   position: absolute;
-  top: ${props => props.isPortrait ? "48%" : "20%"};
-  left: ${props => props.isPortrait ? "8%" : "54%"};
+  top: ${props => (props.isPortrait || props.isDesktop) ? "48%" : "20%"};
+  left: ${props => (props.isPortrait || props.isDesktop) ? "8%" : "54%"};
   font-size: 42px;
 `
 
@@ -71,7 +71,7 @@ const Header = () => {
         params={particleSettings}
       />
       <HeaderTitle>The<br/>Devious<br/>Dev.</HeaderTitle>
-      <HeaderIntro isPortrait={device.isPortrait}>
+      <HeaderIntro isPortrait={device.isPortrait} isDesktop={device.isDesktop}>
         Hi<br/>
         I'm Caleb Rutland<br/>
         <DevArrowLeft src={icon}/>Web Developer<DevArrowRight src={icon}/><br/>

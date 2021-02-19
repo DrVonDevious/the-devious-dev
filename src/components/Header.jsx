@@ -70,7 +70,7 @@ const Header = () => {
         height="100vh"
         params={particleSettings}
       />
-      <HeaderTitle>The<br/>Devious<br/>Dev.</HeaderTitle>
+      <HeaderTitle isPortrait={device.isPortrait}>The<br/>Devious<br/>Dev.</HeaderTitle>
       <HeaderIntro isPortrait={device.isPortrait} isDesktop={device.isDesktop}>
         Hi<br/>
         I'm Caleb Rutland<br/>

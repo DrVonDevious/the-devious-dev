@@ -8,18 +8,49 @@ const WorkItemContainer = styled.div`
 `
 
 const WorkTitle = styled.h1`
-  position: ${props => props.isMobileDevice ? "relative" : "absolute"};
+  position: ${props => props.isMobileDevice
+    ? "relative"
+    : "absolute"
+  };
+
+  left: ${props => !props.isMobileDevice
+    ? "10%"
+    : props.isPortrait
+      ? "20px"
+      : "40px"
+  };
+
   top: 0;
-  left: ${props => props.isMobileDevice ? "20px" : "10%"};
-  margin: 80px 0 20px 0;
+  margin: 60px 0 0 0;
   font-size: 42px;
 `
 
 const WorkDescription = styled.p`
-  position: ${props => props.isMobileDevice ? "relative" : "absolute"};
-  top: ${props => props.isMobileDevice ? "0" : "140px"};
-  left: ${props => props.isMobileDevice ? "20px" : "10%"};
-  font-size: ${props => props.isMobileDevice ? "18px" : "28px"};
+  position: ${props => props.isMobileDevice
+    ? "relative"
+    : "absolute"
+  };
+
+  top: ${props => props.isMobileDevice
+    ? "0"
+    : "140px"
+  };
+
+  left: ${props => !props.isMobileDevice
+    ? "10%"
+    : props.isPortrait
+      ? "20px"
+      : "40px"
+  };
+
+  font-size: ${props => !props.isMobileDevice
+    ? "28px"
+    : props.isPortrait
+      ? "18px"
+      : "32px"
+  };
+
+  margin: 0;
   max-width: 40ch;
   text-align: left;
   white-space: pre-line;
@@ -27,9 +58,20 @@ const WorkDescription = styled.p`
 
 const WorkGIF = styled.img`
   position: relative;
-  left: ${props => props.isMobileDevice ? "50%" : "56%"};
-  transform: ${props => props.isMobileDevice ? "translate(-50%, 0)" : "none"};
-  width: ${props => props.isMobileDevice ? "90%" : "64%"};
+  left: ${props => props.isMobileDevice
+    ? "50%"
+    : "56%"
+  };
+
+  transform: ${props => props.isMobileDevice
+    ? "translate(-50%, 0)"
+    : "none"
+  };
+
+  width: ${props => props.isMobileDevice
+    ? "90%"
+    : "64%"
+  };
 `
 
 const WorkItem = (props) => {
@@ -37,15 +79,23 @@ const WorkItem = (props) => {
 
   return (
     <WorkItemContainer>
-      <WorkGIF
-        src={props.image}
+      <a href={props.href}>
+        <WorkGIF
+          src={props.image}
+          isPortrait={device.isPortrait}
+          isMobileDevice={(device.isMobileDevice || device.isMobileSize)}
+        />
+      </a>
+      <WorkTitle
+        isMobileDevice={(device.isMobileSize || device.isMobileSize)}
         isPortrait={device.isPortrait}
-        isMobileDevice={(device.isMobileDevice || device.isMobileSize)}
-      />
-      <WorkTitle isMobileDevice={(device.isMobileSize || device.isMobileSize)}>
+      >
         {props.title}
       </WorkTitle>
-      <WorkDescription isMobileDevice={(device.isMobileSize || device.isMobileSize)}>
+      <WorkDescription
+        isMobileDevice={(device.isMobileSize || device.isMobileSize)}
+        isPortrait={device.isPortrait}
+      >
         {props.content}
       </WorkDescription>
     </WorkItemContainer>

@@ -5,8 +5,8 @@ const ContactCard = styled.a`
 `
 
 const ContactIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 64px;
+  height: 64px;
 `
 
 const Contact = (props) => {

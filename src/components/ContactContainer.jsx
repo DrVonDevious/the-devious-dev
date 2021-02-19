@@ -7,9 +7,14 @@ import twitterIcon from "../res/twitter-square-brands.svg"
 
 const ContactWrapper = styled.div`
   margin: 140px 0 140px 0;
+  font-size: 14px;
+  text-align: -webkit-center;
+  text-align: center;
 `
 
-const ContactHeader = styled.h1``
+const ContactHeader = styled.h1`
+  margin: 80px 0;
+`
 
 const ContactContainer = () => {
   return (

@@ -5,7 +5,7 @@ import styled from "styled-components"
 
 const ScrollIcon = styled.img`
   position: absolute;
-  top: ${props => props.isPortrait ? "90%" : "86%"};
+  top: ${props => (props.isPortrait || props.isDesktop) ? "90%" : "86%"};
   left: 50%;
   transform: translate(-50%, 0);
   width: 42px;
@@ -42,6 +42,7 @@ const ScrollButton = () => {
       hidden={hidden}
       scroll={scroll}
       isPortrait={device.isPortrait}
+      isDesktop={device.isDesktop}
       className="scroll-button"
       src={icon}
       alt="Down Arrow"

@@ -5,7 +5,7 @@ export default () => {
     isDesktop: true,
     isWidescreen: false,
     isMobileSize: false,
-    isMobileDivice: false,
+    isMobileDevice: false,
     isPortrait: false,
     isRetina: false,
   }

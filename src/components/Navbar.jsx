@@ -3,7 +3,7 @@ import styled from "styled-components"
 import getDevice from "../lib/getDevice"
 
 const NavbarContainer = styled.div`
-  display: ${props => props.isPortrait ? "flex" : "none"};
+  display: ${props => (props.isPortrait || props.isDesktop) ? "flex" : "none"};
   justify-content: center;
   position: ${props => props.fixed ? "fixed" : "fixed"};
   transform: ${props => props.fixed ? "translate(0, 0)"
@@ -71,6 +71,7 @@ const Navbar = () => {
     <NavbarContainer
       isMobileDevice={device.isMobileSize}
       isPortrait={device.isPortrait}
+      isDesktop={device.isDesktop}
       fixed={fixed}
       className="navbar"
     >

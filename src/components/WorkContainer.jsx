@@ -10,7 +10,7 @@ const WorkContainer = () => {
         title="CrouchJump"
         content={`
           I was brought on to work on the development
-          of the legacy version of CrouchJump, but was
+          of the legacy version of CrouchJump, but
           then went on to lead the development and
           design of a new version of the site.\n
           The site is packed with features and fitting

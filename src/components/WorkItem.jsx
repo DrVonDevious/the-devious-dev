@@ -23,6 +23,7 @@ const WorkTitle = styled.h1`
   top: 0;
   margin: 60px 0 0 0;
   font-size: 42px;
+  color: rgb(100, 0, 255);
 `
 
 const WorkDescription = styled.p`

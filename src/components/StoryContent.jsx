@@ -7,7 +7,7 @@ const StoryContent = () => {
   const content = `
     Hi 👋 I'm Caleb Rutland,
     A web-developer and designer.\n
-    I started making games with Java when I was 12,
+    I started developing when I was 12,
     and my love for code has only continued to grow.
   `
 
